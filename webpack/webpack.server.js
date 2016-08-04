@@ -1,14 +1,13 @@
-var path = require('path');
-var projectRoot = __dirname;
+const path = require('path');
+const projectRoot = path.resolve(__dirname, '..');
 
 module.exports = {
   target: 'node', // !different
-  entry: './src/main.js',
+  entry: path.join(projectRoot, 'src/server.js'),
   output: {
     libraryTarget: 'commonjs2', // !different
     path: path.join(projectRoot, 'dist'),
-    // publicPath: path.join(projectRoot, 'public'),
-    filename: 'bundle.js',
+    filename: 'bundle.server.js',
   },
   module: {
     loaders: [
@@ -24,10 +23,4 @@ module.exports = {
       },
     ]
   },
-  // vue: {
-  //   loaders: [
-  //     'vue-style-loader',
-  //     'css-loader',
-  //   ],
-  // },
 };

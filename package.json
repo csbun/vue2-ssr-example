@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "bundle": "webpack",
-    "uglify": "uglifyjs dist/bundle.js > dist/bundle.min.js",
-    "build": "npm run bundle && npm run uglify",
-    "start": "node server/index.js"
+    "watch-c": "webpack --config webpack/webpack.client.js -w",
+    "watch-s": "webpack --config webpack/webpack.server.js -w",
+    "build-c": "webpack --config webpack/webpack.client.js",
+    "build-s": "webpack --config webpack/webpack.server.js",
+    "build": "npm run build-c && npm run build-s",
+    "start": "npm run build && node server/index.js"
   },
   "dependencies": {
     "express": "^4.14.0",
