@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const vueServerRenderer = require('vue-server-renderer');
 
-const filePath = path.join(__dirname, './dist/bundle.js')
+const filePath = path.join(__dirname, './dist/bundle.server.js')
 const code = fs.readFileSync(filePath, 'utf8');
 // const code = require('../dist/bundle');
 const bundleRenderer = vueServerRenderer.createBundleRenderer(code);
